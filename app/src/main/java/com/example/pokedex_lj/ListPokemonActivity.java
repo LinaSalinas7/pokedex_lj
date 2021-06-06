@@ -50,7 +50,6 @@ public class ListPokemonActivity extends AppCompatActivity implements View.OnCli
         adapter = new PokemonAdapter();
         pokemon_List.setAdapter(adapter);
 
-        pokemon_List.setOnClickListener(this);
 
 
     }
@@ -77,31 +76,35 @@ public class ListPokemonActivity extends AppCompatActivity implements View.OnCli
                                 String json = gson.toJson(my_pokemon);
                                 String resp = http.POSTrequest(Constants.base+"pokemons/"+username+".json", json);
 
+                                Log.e("pokemon", my_pokemon.getStats().get(0).getBase_stat()+"");
+
 
                                 runOnUiThread(
                                         () -> {
                                             //Toast.makeText(this,"Pokemon agregado", Toast.LENGTH_LONG);
-                                            adapter.addPokemon(my_pokemon);
+                                            //adapter.addPokemon(my_pokemon);
+
 
 
                                             //String respons = http.PUTrequest(Constants.base+"users/"+ user.getName() +".json",json);
 
-                                            //Log.e("pokemon", my_pokemon.getStats().get(0).getBase_stat()+"");
                                             //Log.e("prueba", Constants.base+"pokemons/"+username+".json");
                                             //
                                         }
                                 );
 
+
+
+
                             }
                     ).start();
+
                 }
 
                 break;
 
-            case R.id.pokemon_list:
         }
     }
-
 
 
 }

@@ -4,6 +4,7 @@ public class Sprites {
     private String front_default;
 
     public Sprites() {
+
     }
 
     public String getFront_default() {

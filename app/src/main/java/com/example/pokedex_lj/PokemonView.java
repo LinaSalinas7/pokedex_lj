@@ -66,7 +66,7 @@ public class PokemonView extends RecyclerView.ViewHolder implements View.OnClick
 
 
     public interface OnPokemonItemAction{
-        void onDeleteContact(Pokemon pokemon);
+        void pokeClicked(Pokemon pokemon, View v);
     }
 
     public interface pokeClicked{
@@ -76,12 +76,10 @@ public class PokemonView extends RecyclerView.ViewHolder implements View.OnClick
 
     @Override
     public void onClick(View view) {
-        if (ver_pokemon!=null){
-            ver_pokemon.pokeClicked(this.pokemon,this.root);
+        if (listener!=null){
+            listener.pokeClicked(this.pokemon,this.root);
+
         }
     }
 
-    public void setVer_pokemon(pokeClicked ver_pokemon) {
-        this.ver_pokemon = ver_pokemon;
-    }
 }

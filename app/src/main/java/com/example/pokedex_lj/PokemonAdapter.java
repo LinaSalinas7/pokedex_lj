@@ -10,12 +10,14 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pokedex_lj.model.Pokemon;
+import com.example.pokedex_lj.model.Sprites;
 
 import java.util.ArrayList;
 
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonView> implements PokemonView.OnPokemonItemAction, PokemonView.pokeClicked{
 
     private ArrayList<Pokemon> pokemons;
+    private Sprites sprites;
 
     public PokemonAdapter() {
         pokemons = new ArrayList<>();
@@ -31,7 +33,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonView> implements
     public PokemonView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View row = inflater.inflate(R.layout.pokemonrow, null);
+        View row = inflater.inflate(R.layout.pokemonrow, parent,false);
         ConstraintLayout rowroot = (ConstraintLayout) row;
         PokemonView pokemonView = new PokemonView(rowroot);
         pokemonView.setListener(this);
@@ -43,8 +45,6 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonView> implements
         holder.setPokemon(pokemons.get(position));
         holder.getName().setText(pokemons.get(position).getName());
         holder.getImage().setImageResource(pokemons.get(position).getStats().get(0).getBase_stat());
-        holder.setVer_pokemon(this);
-
 
     }
 
@@ -53,16 +53,12 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonView> implements
         return pokemons.size();
     }
 
-    @Override
-    public void onDeleteContact(Pokemon pokemon) {
-        
-    }
 
     @Override
     public void pokeClicked(Pokemon pokemon, View v) {
 
         Intent i = new Intent(v.getContext(), PokemonActivity.class);
-        i.putExtra("pokemon", pokemon);
+        i.putExtra("pokemon", pokemons);
         v.getContext().startActivity(i);
 
     }
