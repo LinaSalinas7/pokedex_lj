@@ -1,6 +1,7 @@
 package com.example.pokedex_lj;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,7 +45,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonView> implements
     public void onBindViewHolder(@NonNull PokemonView holder, int position) {
         holder.setPokemon(pokemons.get(position));
         holder.getName().setText(pokemons.get(position).getName());
-        holder.getImage().setImageResource(pokemons.get(position).getStats().get(0).getBase_stat());
+        holder.getImage().setImageDrawable(Drawable.createFromPath(pokemons.get(position).getSprites().getFront_default())); //setImageResource(pokemons.get(position).getStats().get(0).getBase_stat());
 
     }
 

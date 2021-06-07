@@ -72,6 +72,8 @@ public class PokemonActivity extends AppCompatActivity {
                                             detail_attack.append(value.getStats().get(1).getBase_stat()+"");
                                             detail_speed.append(value.getStats().get(5).getBase_stat()+"");
                                             detail_defensa.append(value.getStats().get(2).getBase_stat()+"");
+                                            String url = pokemon.getSprites().getFront_default();
+                                            //Glide.with(this).load(url).fitCenter().into(detail_img);
                                             //detail_img.setImageResource(pokemon.getSprites().);
 
                                         }

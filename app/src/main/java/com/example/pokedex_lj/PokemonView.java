@@ -1,5 +1,7 @@
 package com.example.pokedex_lj;
 
+import android.app.ActivityManager;
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -18,6 +20,7 @@ public class PokemonView extends RecyclerView.ViewHolder implements View.OnClick
     private TextView name;
     private OnPokemonItemAction listener;
     private Button ver_pokemon;
+    private ActivityManager activity;
 
     private Pokemon pokemon;
 
@@ -28,6 +31,13 @@ public class PokemonView extends RecyclerView.ViewHolder implements View.OnClick
         name = root.findViewById(R.id.pokemon_name);
         ver_pokemon = root.findViewById(R.id.ver_pokemon);
         ver_pokemon.setOnClickListener(this);
+
+        /*root.setOnClickListener(
+                v->{
+                    Intent i = new Intent(activity, PokemonActivity.class);
+                }
+        );*/
+
     }
 
     public OnPokemonItemAction getListener() {

@@ -82,7 +82,7 @@ public class ListPokemonActivity extends AppCompatActivity implements View.OnCli
                                 runOnUiThread(
                                         () -> {
                                             //Toast.makeText(this,"Pokemon agregado", Toast.LENGTH_LONG);
-                                            //adapter.addPokemon(my_pokemon);
+                                            adapter.addPokemon(my_pokemon);
 
 
 
